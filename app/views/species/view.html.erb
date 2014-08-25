@@ -14,6 +14,16 @@
         </form>
       </h2>
       <h3>Sightings</h3>
+
+      <form action="/species/<%= @species.id %>/sighting" method="post">
+        <select name="location">
+          <% @locations.each do |location| %>
+            <option value="<%= location.id %>"><%= location.name %></option>
+          <% end %>
+        </select>
+        <button class="btn btn-xs">Set Sighting Location</button>
+      </form>
+
       <ul>
         <% @species.locations.each do |sighting| %>
           <li><%= sighting.name %></li>

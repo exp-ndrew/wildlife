@@ -14,6 +14,7 @@ class SpeciesController < ApplicationController
 
   def view
     @species = Species.find_by(id: params[:id])
+    @locations = Location.all
     render('species/view.html.erb')
   end
 
@@ -30,6 +31,14 @@ class SpeciesController < ApplicationController
     @species = Species.find_by(id: params[:id])
     @species.name = params[:name]
     @species.save
+    render('species/view.html.erb')
+  end
+
+  def new_sighting
+    @locations = Location.all
+    @species = Species.find_by(id: params[:id])
+    @sighted_location = Location.find_by(id: params[:location])
+    @species.locations << @sighted_location
     render('species/view.html.erb')
   end
 end

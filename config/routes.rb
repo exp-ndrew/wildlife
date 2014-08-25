@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   match('locations/view/:id', {:via => :get, :to => 'location#view'}) #read
   match('locations/:id/delete', {:via => :delete, :to => 'location#delete'}) #destroy
   match('locations/:id/edit', {:via => :post, :to => 'location#edit'}) #edit
+
+  match('species/:id/sighting', {:via => :post, :to => 'species#new_sighting'})
 end
