@@ -9,7 +9,7 @@
 
       <h2>Species</h2>
       <ul>
-        <% @species.each do |species| %>
+        <% @species.sort.each do |species| %>
           <li><a href="/species/view/<%=species.id%>"><%= species.name %></a></li>
         <% end %>
       </ul>
@@ -22,7 +22,7 @@
 
       <h2>Locations</h2>
       <ul>
-        <% @locations.each do |location| %>
+        <% @locations.sort.each do |location| %>
           <li><a href="/locations/view/<%=location.id%>"><%= location.name %></a></li>
         <% end %>
       </ul>

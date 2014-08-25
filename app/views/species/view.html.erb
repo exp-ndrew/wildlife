@@ -4,6 +4,10 @@
     <div class="col-md-4"> <!--left-->
 
       <h2><%= @species.name %>
+        <form action="/species/<%= @species.id %>/edit" method="post">
+            <input type="text" class="form-control" name="name" placeholder="Rename this species">
+            <button class="btn btn-xs">Rename</button>
+        </form>
         <form action="/species/<%= @species.id %>/delete" method="post">
             <input name="_method" type="hidden" value="delete">
             <button class="btn btn-danger btn-xs">Delete Species</button>

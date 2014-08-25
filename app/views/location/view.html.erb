@@ -5,6 +5,10 @@
 
       <h2>
         <%= @location.name %>
+        <form action="/locations/<%= @location.id %>/edit" method="post">
+            <input type="text" class="form-control" name="name" placeholder="Rename this location">
+            <button class="btn btn-xs">Rename</button>
+        </form>
         <form action="/locations/<%= @location.id %>/delete" method="post">
             <input name="_method" type="hidden" value="delete">
             <button class="btn btn-danger btn-xs">Delete Location</button>
