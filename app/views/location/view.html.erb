@@ -3,7 +3,13 @@
   <div class="row">
     <div class="col-md-4"> <!--left-->
 
-      <h2><%= @location.name %></h2>
+      <h2>
+        <%= @location.name %>
+        <form action="/locations/<%= @location.id %>/delete" method="post">
+            <input name="_method" type="hidden" value="delete">
+            <button class="btn btn-danger btn-xs">Delete Location</button>
+        </form>
+      </h2>
       <h3>Sightings</h3>
       <ul>
         <% @location.species.each do |sighting| %>

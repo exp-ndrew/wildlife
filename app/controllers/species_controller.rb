@@ -16,4 +16,12 @@ class SpeciesController < ApplicationController
     @species = Species.find_by(id: params[:id])
     render('species/view.html.erb')
   end
+
+  def delete
+    @locations = Location.all
+    @species = Species.all
+    @this_species = Species.find_by(id: params[:id])
+    @this_species.destroy
+    render('species/index.html.erb')
+  end
 end

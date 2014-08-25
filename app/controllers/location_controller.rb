@@ -11,4 +11,12 @@ class LocationController < ApplicationController
     @location = Location.find_by(id: params[:id])
     render('location/view.html.erb')
   end
+
+  def delete
+    @locations = Location.all
+    @species = Species.all
+    @location = Location.find_by(id: params[:id])
+    @location.destroy
+    render('species/index.html.erb')
+  end
 end
