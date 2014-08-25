@@ -1,0 +1,15 @@
+<div class="container">
+  <h1><a href="/species">Wildlife Tracker</a></h1>
+  <div class="row">
+    <div class="col-md-4"> <!--left-->
+
+      <h2><%= @location.name %></h2>
+      <h3>Sightings</h3>
+      <ul>
+        <% @location.species.each do |sighting| %>
+          <li><%= sighting.name %></li>
+        <% end %>
+      </ul>
+    </div> <!--left-->
+  </div> <!--row-->
+</div>

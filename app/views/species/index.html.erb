@@ -1,16 +1,32 @@
 <div class="container">
   <h1>Wildlife Tracker</h1>
+  <div class="row">
+    <div class="col-md-4"> <!--left-->
+      <form action="/species/new" method="post" class="form-inline">
+        <input type="text" class="form-control" name="name" placeholder="Add a Species">
+        <button class="btn">Add</button>
+      </form>
 
-  <form action="/species/new" method="post" class="form-inline">
-    <input type="text" class="form-control" name="name" placeholder="Add a Species">
-    <button class="btn">Add</button>
-  </form>
+      <h2>Species</h2>
+      <ul>
+        <% @species.each do |species| %>
+          <li><a href="/species/view/<%=species.id%>"><%= species.name %></a></li>
+        <% end %>
+      </ul>
+    </div> <!--left-->
+    <div class="col-md-4"><!--right-->
+      <form action="/locations/new" method="post" class="form-inline">
+        <input type="text" class="form-control" name="name" placeholder="Add a Location">
+        <button class="btn">Add</button>
+      </form>
 
-  <h2>Species</h2>
-  <ul>
-    <% @species.each do |species| %>
-      <li><%= species.name %></li>
-    <% end %>
-  </ul>
-
+      <h2>Locations</h2>
+      <ul>
+        <% @locations.each do |location| %>
+          <li><a href="/locations/view/<%=location.id%>"><%= location.name %></a></li>
+        <% end %>
+      </ul>
+    </div> <!--right-->
+<!--     <div class="col-md-4"></div> -->
+  </div><!--row-->
 </div>
